@@ -1,0 +1,243 @@
+{
+    "name": "InputControls",
+    "maps": [
+        {
+            "name": "Controls",
+            "id": "6c098fcd-1ece-470e-87a7-8902e3e485df",
+            "actions": [
+                {
+                    "name": "Mouse",
+                    "type": "PassThrough",
+                    "id": "3c660176-7ca0-4544-b30b-2f9240d4be2f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move",
+                    "type": "PassThrough",
+                    "id": "814aea12-c79d-4d1d-8f5b-ff32507b4de7",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "PassThrough",
+                    "id": "49fb4b93-be19-4eef-87c2-1205c3f8c2bb",
+                    "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "f36b0a48-b3a1-4f08-841c-1a3209bfe436",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4b205c33-3eca-471e-ad11-9561ee4c7561",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamepadControlScheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "3bac8eaa-15bf-4aaf-8834-86d0e289ced7",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "6903ef7f-23c4-41c0-b6d0-0ce1dbb06467",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "d870586b-a4e4-4e38-b35b-3c60e43caea3",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "0ed3d0a1-a774-46b7-b2a5-1acc4aba2d1d",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "56352f28-dc8a-41b7-8e12-3ad2fdda3644",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "a1439bf4-f225-42a0-8ad3-c91d553f1ae4",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamepadControlScheme",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "49016a25-09b4-4414-bb84-343f3d08cf3b",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "bb7a1649-3548-406f-ae78-c9629a81e17d",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "c4b07208-4164-43a7-9432-d95480003f75",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "866a7464-e60d-4cc3-b074-aa13c943bf03",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "59bf2e7a-3fd2-4e15-96d7-507b379e5c17",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "69b6a79b-c70d-4be3-be1f-ad0bffea91a3",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "980b2683-8d65-43df-947e-0de23f00d9b9",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamepadControlScheme",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd1efc9b-e02e-4d7f-8f1b-bda9f6777f4b",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardControlScheme",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "GamepadControlScheme",
+            "bindingGroup": "GamepadControlScheme",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "KeyboardControlScheme",
+            "bindingGroup": "KeyboardControlScheme",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

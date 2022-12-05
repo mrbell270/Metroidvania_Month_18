@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - PlayerWeapon
+  - EnemyWeapon
+  - LevelTrigger
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - PlayerHurtbox
+  - EnemyHurtbox
+  - Ground
+  - PlayerWeapon
+  - EnemyWeapon
+  - Interactables
+  - PlayerRigidBody
+  - EnemyRigidBody
+  - Loot
+  - Triggers
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 892801091
+    locked: 0
+  - name: AboveGround
+    uniqueID: 2663437257
+    locked: 0
+  - name: tmpWeapon
+    uniqueID: 3148444263
+    locked: 0
