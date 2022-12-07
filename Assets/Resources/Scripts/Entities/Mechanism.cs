@@ -17,10 +17,10 @@ public class Mechanism : MonoBehaviour
     public int SceneIdx { get => sceneIdx; set => sceneIdx = value; }
     public string MechName { get => mechName; set => mechName = value; }
 
-    private void Start()
+    public void Start()
     {
         animator = GetComponent<Animator>();
-        animator.SetBool("isOn", IsOn);
+        if (animator != null) animator.SetBool("isOn", IsOn);
 
         SceneIdx = gameObject.scene.buildIndex;
         MechName = gameObject.name;
@@ -29,16 +29,6 @@ public class Mechanism : MonoBehaviour
     public void ChangeState(bool shouldBe)
     {
         IsOn = shouldBe;
-        animator.SetBool("isOn", shouldBe);
-    }
-
-    public string GetState()
-    {
-        return JsonUtility.ToJson(this); ;
-    }
-
-    public string SetState(string json)
-    {
-        return JsonUtility.ToJson(this); ;
+        if (animator != null) animator.SetBool("isOn", shouldBe);
     }
 }

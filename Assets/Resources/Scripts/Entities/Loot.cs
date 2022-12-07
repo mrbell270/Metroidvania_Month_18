@@ -82,4 +82,21 @@ public class Loot : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (IsBusy) return;
+
+        if (collectorTags.Contains(collision.gameObject.tag))
+        {
+            if (isAttractable) 
+            { 
+                attractTransform = collision.gameObject.transform; 
+            }
+            else
+            {
+                SetLooted(collision.gameObject);
+            }
+        }
+    }
 }

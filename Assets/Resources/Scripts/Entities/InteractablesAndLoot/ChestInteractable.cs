@@ -17,11 +17,14 @@ public class ChestInteractable : Interactable
     GameStateManager gsm;
     int sceneIdx;
 
+    Animator animator;
+
     void Start()
     {
         gsm = GameStateManager.GetInstance();
         sceneIdx = gameObject.scene.buildIndex;
         col = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
 
         TestWeapon = TestChestWeapon;
 
@@ -39,9 +42,9 @@ public class ChestInteractable : Interactable
 
     void SetVisible(bool isOn)
     {
-        // TODO: Animate
         isVisible = isOn;
         skin.SetActive(isOn);
+        if(isOn) animator.SetTrigger("spawned");
         col.enabled = isOn;
     }
 
@@ -50,19 +53,24 @@ public class ChestInteractable : Interactable
         if (!isUnlocked)
         {
             isUnlocked = true;
-            // TODO: Animate
-            skin.GetComponent<SpriteRenderer>().color = Color.gray;
+            StartCoroutine(ActivateRoutine());
+        }
+    }
 
-            foreach (ChestDrop drop in drops)
+    IEnumerator ActivateRoutine()
+    {
+        animator.SetTrigger("opened");
+        yield return new WaitForSeconds(1f);
+
+        foreach (ChestDrop drop in drops)
+        {
+            for (int i = 0; i < drop.amount; i++)
             {
-                for (int i = 0; i < drop.amount; i++)
-                {
-                    float x = Random.Range(-0.5f, 0.5f);
-                    float y = Random.Range(-0.5f, 0.5f);
-                    Vector3 direction = new Vector3(x, y, 0).normalized;
-                    GameObject d = Instantiate(drop.loot, transform);
-                    StartCoroutine(LootMove(d.transform, direction));
-                }
+                float x = Random.Range(-0.5f, 0.5f);
+                float y = Random.Range(-0.5f, 0.5f);
+                Vector3 direction = new Vector3(x, y, 0).normalized;
+                GameObject d = Instantiate(drop.loot, transform);
+                StartCoroutine(LootMove(d.transform, direction));
             }
         }
     }
@@ -81,11 +89,11 @@ public class ChestInteractable : Interactable
         Loot lootloot = loot.gameObject.GetComponent<Loot>();
         if (lootloot != null) lootloot.IsBusy = false;
     }
-    public bool TestChestWeapon(Weapon att) => true;
+    public bool TestChestWeapon(Weapon att) => (att.Type == AttackType.Blunt || att.Type == AttackType.Slice);
 
     public override void Decline()
     {
-        // Always activate
+        animator.SetTrigger("declined");
     }
 }
 

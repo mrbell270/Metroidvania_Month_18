@@ -54,3 +54,6 @@ TagManager:
   - name: tmpWeapon
     uniqueID: 3148444263
     locked: 0
+  - name: InGameUI
+    uniqueID: 788838005
+    locked: 0

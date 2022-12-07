@@ -18,7 +18,7 @@ public abstract class BattleController : MonoBehaviour
 
     [Header("Weapon")]
     [SerializeField]
-    Transform availableWeapons;
+    public Transform availableWeapons;
     Weapon currentWeapon;
     int currentWeaponIdx;
 
@@ -33,6 +33,7 @@ public abstract class BattleController : MonoBehaviour
     public int CurHealthPoints { get => curHealthPoints; set => curHealthPoints = value; }
     public List<string> AttackerTags { get => attackerTags; }
     public bool IsLocked { get => isLocked; set => isLocked = value; }
+    public bool Init { get => init; set => init = value; }
 
     public bool IsBusy() => currentWeapon.IsBusy;
 
@@ -40,13 +41,13 @@ public abstract class BattleController : MonoBehaviour
 
     private void Update()
     {
-        if (isLocked && init)
+        if (isLocked && Init)
         {
             AnimatorStateInfo animInfo = ParentActor.animationController.Anim.GetCurrentAnimatorStateInfo(0);
             if (!(animInfo.IsName("spawn") && animInfo.normalizedTime < 1))
             {
                 isLocked = false;
-                init = false;
+                Init = false;
             }
         }
     }
@@ -68,7 +69,6 @@ public abstract class BattleController : MonoBehaviour
         if (!IsLocked)
         {
             CurHealthPoints -= mainDamage ? att.Damage : att.DamageOverTime;
-            Debug.Log(ParentActor.gameObject.name + " took " + att.Damage + " damage by " + att.GetType().Name + "; curHP=" + CurHealthPoints);
             TestOrDie();
         }
     }
@@ -89,6 +89,10 @@ public abstract class BattleController : MonoBehaviour
         }
     }
 
+    public void HealAll()
+    {
+        curHealthPoints = maxHealthPoints;
+    }
     public void Attack()
     {
         if (!IsLocked)
@@ -123,6 +127,14 @@ public abstract class BattleController : MonoBehaviour
         currentWeapon.transform.localPosition = Vector3.zero;
         currentWeapon.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         GetComponent<Collider2D>().enabled = false;
+    }
+
+    public void ResetAfterDeath()
+    {
+        attackVector = Vector2.zero;
+        init = true;
+        isLocked = true;
+        HealAll();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

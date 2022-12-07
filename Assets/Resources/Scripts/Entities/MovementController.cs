@@ -68,4 +68,11 @@ public abstract class MovementController : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         rb.velocity = Vector2.zero;
     }
+
+    public void ResetAfterDeath()
+    {
+        movementVector = Vector2.zero;
+        isDead = false;
+        isLocked = true;
+    }
 }

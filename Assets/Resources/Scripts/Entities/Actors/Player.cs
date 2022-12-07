@@ -12,8 +12,13 @@ public class Player : Actor
     InputControls _controls;
     Camera mainCamera;
 
+    Vector3 playerRespawn = new Vector3(18, -11, 0);
+    Vector3 cameraRespawn = new Vector3(18, -10, -20);
+
     [SerializeField]
     private int coins;
+
+    public int Coins { get => coins; set => coins = value; }
 
     public static Player GetInstance()
     {
@@ -36,8 +41,6 @@ public class Player : Actor
 
         InitializeActor();
         ControlsAwake();
-
-        coins = 0;
     }
 
     private void ControlsAwake()
@@ -76,7 +79,7 @@ public class Player : Actor
     {
         if(loot.Type == LootType.Coin)
         {
-            coins++;
+            Coins++;
         }
         else if(loot.Type == LootType.Weapon)
         {
@@ -84,11 +87,11 @@ public class Player : Actor
             w.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             battleController.SetWeapon();
         }
-        else if(loot.Type == LootType.Heart)
+        else if(loot.Type == LootType.Heal)
         {
             battleController.Heal();
         }
-        else if(loot.Type == LootType.Buff)
+        else if(loot.Type == LootType.Heart)
         {
             battleController.MaxHealthPoints++;
             battleController.Heal();
@@ -105,7 +108,16 @@ public class Player : Actor
 
     public override void SetDead()
     {
-        Debug.Log(gameObject.name + " is dead");
+        animationController.AnimateDeath();
+    }
+
+    public void ReloadAfterDeath()
+    {
+        mainCamera.transform.position = cameraRespawn;
+        transform.position = playerRespawn;
+        movementController.ResetAfterDeath();
+        battleController.ResetAfterDeath();
+        animationController.Anim.SetTrigger("Spawn");
         // restart level?checkpoint. Reset coins, interactables. Restore HP
     }
 
@@ -122,5 +134,29 @@ public class Player : Actor
     private void OnDisable()
     {
         _controls.Controls.Disable();
+    }
+    
+    public PlayerSaveState GetSaveState()
+    {
+        return new PlayerSaveState(this);
+    }
+
+    public void RestoreSaveState(PlayerSaveState pss)
+    {
+        coins = pss.Coins;
+        battleController.MaxHealthPoints = pss.MaxHealth;
+
+        foreach(Transform t in battleController.availableWeapons.GetComponentsInChildren<Transform>())
+        {
+            Destroy(t.gameObject);
+        }
+
+        List<GameObject> prefabWeapons = pss.GetWeapons();
+
+        foreach(GameObject prefabWeapon in prefabWeapons)
+        {
+            GameObject w = Instantiate(prefabWeapon, battleController.availableWeapons);
+            w.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        }
     }
 }
