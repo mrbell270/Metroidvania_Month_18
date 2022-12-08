@@ -27,7 +27,7 @@ public class StraightLineWeapon : Weapon
 
         Vector2 idleScale = transform.localScale;
         Vector3 startScale = new Vector3(Range, minWidth, 0);
-        Vector3 peakScale = new Vector3(Range, maxWidth, 0);
+        Vector3 peakScale = new Vector3(Range-1, maxWidth, 0);
         transform.localScale = startScale;
 
 

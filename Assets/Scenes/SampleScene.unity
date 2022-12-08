@@ -709,7 +709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1543655094744345469, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: maxHealthPoints
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: drops.Array.size
@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attacksQueue.Array.size
@@ -764,8 +764,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
-      propertyPath: attackQueue.Array.data[2].offset
+      propertyPath: attackQueue.Array.data[0].offset
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
+      propertyPath: attackQueue.Array.data[1].offset
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
+      propertyPath: attackQueue.Array.data[2].offset
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[3].offset
@@ -785,7 +793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[0].direction.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[1].direction.x
@@ -793,7 +801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[1].direction.y
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[2].direction.x
@@ -801,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[2].direction.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4899072719597642970, guid: d4c1d0c352d5b934a811ea8bbc42085f, type: 3}
       propertyPath: attackQueue.Array.data[3].direction.x
@@ -971,7 +979,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3237004155643927030, guid: 21f74a177906e6c4a926a0cb9145d933, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237004155716032525, guid: 21f74a177906e6c4a926a0cb9145d933, type: 3}
+      propertyPath: damage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237004155716032525, guid: 21f74a177906e6c4a926a0cb9145d933, type: 3}
+      propertyPath: peakTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3237004155716032525, guid: 21f74a177906e6c4a926a0cb9145d933, type: 3}
+      propertyPath: damageOverTime
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f74a177906e6c4a926a0cb9145d933, type: 3}

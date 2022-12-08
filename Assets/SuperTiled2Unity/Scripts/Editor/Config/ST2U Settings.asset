@@ -55,7 +55,11 @@ MonoBehaviour:
   - {r: 0.7372549, g: 0.56078434, b: 0.56078434, a: 1}
   m_CustomObjectTypes: []
   m_PrefabReplacements:
-  - m_TypeName: LevelTrigger
+  - m_TypeName: LoadingTrigger
     m_Prefab: {fileID: 8665373495696971859, guid: 7cf7fb76785b9334eac7f7b9a552ce68, type: 3}
   - m_TypeName: ActivationTrigger
     m_Prefab: {fileID: 2829496268100508965, guid: 2c5fc2aa842604b4f9f09a5855c70ab6, type: 3}
+  - m_TypeName: SpawnTriggerH
+    m_Prefab: {fileID: 8665373495696971859, guid: 4bb3495d4572bdd42aa07ae764c46fd6, type: 3}
+  - m_TypeName: SpawnTriggerV
+    m_Prefab: {fileID: 8665373495696971859, guid: e33b669e511058644a2c3099db9c73d0, type: 3}

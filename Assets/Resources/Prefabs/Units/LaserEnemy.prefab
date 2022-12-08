@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df60bddd9ef98440aec6e8835ed4e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDead: 0
   movementSpeed: 10
   movementSmoothing: 0.05
 --- !u!50 &1543655093960345158
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6398a52133fd804b8fb68846875a8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 99
+  maxHealthPoints: 3
   curHealthPoints: 0
   attackerTags:
   - PlayerWeapon

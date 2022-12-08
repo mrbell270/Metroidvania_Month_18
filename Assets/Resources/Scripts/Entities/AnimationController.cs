@@ -8,6 +8,7 @@ public abstract class AnimationController : MonoBehaviour
     Animator anim;
     public const string movementParameter = "Movement";
     public const string deathParameter = "Death";
+    public const string hitParameter = "Hit";
 
     public void InitializeAnimationController()
     {
@@ -20,6 +21,10 @@ public abstract class AnimationController : MonoBehaviour
     public virtual void AnimateDeath()
     {
         Anim.SetTrigger(deathParameter);
+    }
+    public virtual void AnimateHit()
+    {
+        Anim.SetTrigger(hitParameter);
     }
 
 }

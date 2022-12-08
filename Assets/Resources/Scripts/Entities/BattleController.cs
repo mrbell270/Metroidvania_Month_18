@@ -64,21 +64,33 @@ public abstract class BattleController : MonoBehaviour
         }
     }
 
-    public virtual void TakeDamage(Weapon att, bool mainDamage = true)
+    public virtual void TakeDamage(Weapon attack, bool mainDamage = true)
     {
         if (!IsLocked)
         {
-            CurHealthPoints -= mainDamage ? att.Damage : att.DamageOverTime;
-            TestOrDie();
+            parentActor.animationController.AnimateHit();
+            if (attack.Type == AttackType.Lethal && parentActor is Player)
+            {
+                CurHealthPoints -= 1;
+                bool isDead = TestOrDie();
+                if (!isDead) Player.GetInstance().RestoreLevelSpawn();
+            }
+            else
+            {
+                CurHealthPoints -= mainDamage ? attack.Damage : attack.DamageOverTime;
+                TestOrDie();
+            }
         }
     }
 
-    void TestOrDie()
+    bool TestOrDie()
     {
         if (curHealthPoints <= 0)
         {
             ParentActor.SetDead();
+            return true;
         }
+        return false;
     }
 
     public void Heal(int heal = 1)
@@ -119,7 +131,7 @@ public abstract class BattleController : MonoBehaviour
         currentWeapon = childWeapons[currentWeaponIdx];
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         isLocked = true;
         currentWeapon.GetComponent<Collider2D>().enabled = false;
@@ -127,6 +139,18 @@ public abstract class BattleController : MonoBehaviour
         currentWeapon.transform.localPosition = Vector3.zero;
         currentWeapon.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         GetComponent<Collider2D>().enabled = false;
+    }
+
+    public virtual void DeactivateSoft()
+    {
+        isLocked = true;
+        //GetComponent<Collider2D>().enabled = false;
+    }
+
+    public virtual void ReactivateSoft()
+    {
+        isLocked = false;
+        //GetComponent<Collider2D>().enabled = true;
     }
 
     public void ResetAfterDeath()

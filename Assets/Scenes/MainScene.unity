@@ -307,6 +307,11 @@ MonoBehaviour:
   isDead: 0
   movementSpeed: 5
   movementSmoothing: 0.05
+  shiftTime: 0.5
+  shiftRange: 2.5
+  shiftableLayers:
+    serializedVersion: 2
+    m_Bits: 30976
 --- !u!114 &485907854
 MonoBehaviour:
   m_ObjectHideFlags: 0

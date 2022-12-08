@@ -44,11 +44,11 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.03125,
-            "selectedLayer": 0,
+            "scale": 0.75,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": -512,
-                "y": -1232
+                "x": 1585.333333333333,
+                "y": 169.33333333333337
             }
         },
         "Level2.tmx": {
@@ -56,10 +56,10 @@
                 3
             ],
             "scale": 0.75,
-            "selectedLayer": 1,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 298.6666666666667,
-                "y": -152.66666666666663
+                "x": 406.6666666666666,
+                "y": -94.66666666666663
             }
         },
         "Level3.tmx": {
@@ -69,8 +69,8 @@
             "scale": 0.25,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 364,
-                "y": 434
+                "x": 204,
+                "y": 776
             }
         },
         "LevelTemplate.tmx": {

@@ -12,11 +12,14 @@ public class Player : Actor
     InputControls _controls;
     Camera mainCamera;
 
+    Vector3 lastLevelSpawn;
     Vector3 playerRespawn = new Vector3(18, -11, 0);
     Vector3 cameraRespawn = new Vector3(18, -10, -20);
 
     [SerializeField]
     private int coins;
+
+    bool canShift = true;
 
     public int Coins { get => coins; set => coins = value; }
 
@@ -39,6 +42,8 @@ public class Player : Actor
         movementController.MovementVector = Vector2.zero;
         battleController.AttackVector = Vector2.zero;
 
+        lastLevelSpawn = playerRespawn;
+
         InitializeActor();
         ControlsAwake();
     }
@@ -53,7 +58,9 @@ public class Player : Actor
         _controls.Controls.Attack.performed += ctx => battleController.AttackVector = ctx.ReadValue<Vector2>();
         _controls.Controls.Move.canceled += ctx => battleController.AttackVector = Vector2.zero;
 
-        _controls.Controls.Switch.performed += ctx => battleController.SwitchWeapon(); ;
+        _controls.Controls.Switch.performed += ctx => battleController.SwitchWeapon();
+
+        _controls.Controls.Shift.performed += ctx => ShiftAction();
 
         if (movementController == null)
         {
@@ -106,9 +113,17 @@ public class Player : Actor
         }
     }
 
+    void ShiftAction()
+    {
+        if (canShift)
+        {
+            movementController.GetComponent<ControledMovement>().Shift();
+        }
+    }
     public override void SetDead()
     {
         animationController.AnimateDeath();
+        movementController.Deactivate();
     }
 
     public void ReloadAfterDeath()
@@ -118,12 +133,12 @@ public class Player : Actor
         movementController.ResetAfterDeath();
         battleController.ResetAfterDeath();
         animationController.Anim.SetTrigger("Spawn");
-        // restart level?checkpoint. Reset coins, interactables. Restore HP
     }
 
-    public void LoadNextLevel()
+    public void RestoreLevelSpawn()
     {
-
+        transform.position = lastLevelSpawn;
+        animationController.Anim.SetTrigger("Respawn");
     }
 
     private void OnEnable()
@@ -158,5 +173,10 @@ public class Player : Actor
             GameObject w = Instantiate(prefabWeapon, battleController.availableWeapons);
             w.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         }
+    }
+
+    public void SetLevelSpawn(Vector3 pos)
+    {
+        lastLevelSpawn = pos;
     }
 }

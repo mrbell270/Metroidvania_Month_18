@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="18">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="24">
  <tileset firstgid="1" source="ground_tilset.tsx"/>
  <layer id="2" name="background" width="36" height="20">
   <properties>
@@ -99,5 +99,9 @@
     <property name="Idx" type="int" value="1"/>
    </properties>
   </object>
+  <object id="18" template="Templates/STH.tx" class="SpawnTriggerH" x="576" y="32"/>
+  <object id="21" template="Templates/STH.tx" x="576" y="608"/>
+  <object id="22" template="Templates/STV.tx" class="SpawnTriggerV" x="32" y="320"/>
+  <object id="23" template="Templates/STV.tx" x="1120" y="320"/>
  </objectgroup>
 </map>

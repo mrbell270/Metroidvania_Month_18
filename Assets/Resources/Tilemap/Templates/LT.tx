@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
- <object name="LT" class="LevelTrigger">
+ <object name="LT" class="LoadingTrigger">
   <properties>
    <property name="Idx" type="int" value="0"/>
   </properties>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="18">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="22">
  <tileset firstgid="1" source="ground_tilset.tsx"/>
  <layer id="2" name="background" width="36" height="20">
   <properties>
@@ -63,7 +63,7 @@
    <property name="unity:layer" value="Ground"/>
   </properties>
   <data encoding="csv">
-29,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -99,5 +99,9 @@
     <property name="Idx" type="int" value="3"/>
    </properties>
   </object>
+  <object id="18" template="Templates/STH.tx" x="576" y="608"/>
+  <object id="19" template="Templates/STH.tx" x="576" y="32"/>
+  <object id="20" template="Templates/STV.tx" x="32" y="320"/>
+  <object id="21" template="Templates/STV.tx" x="1120" y="320"/>
  </objectgroup>
 </map>

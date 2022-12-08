@@ -21,6 +21,7 @@ public class HealInteractable : Interactable
         float y = Random.Range(-0.5f, 0.5f);
         Vector3 direction = new Vector3(x, y, 0).normalized;
         GameObject hp = Instantiate(healPrefab, transform);
+        hp.GetComponent<Loot>().IsBusy = true;
         StartCoroutine(LootMove(hp.transform, direction));
     }
 

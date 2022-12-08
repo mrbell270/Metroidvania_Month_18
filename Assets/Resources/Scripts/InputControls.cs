@@ -62,6 +62,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shift"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d40bab2-21e0-4764-a2d6-8a611ebe97e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,7 +152,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""WASD"",
+                    ""name"": ""Arrows"",
                     ""id"": ""49016a25-09b4-4414-bb84-343f3d08cf3b"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -198,6 +207,61 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""IJKL"",
+                    ""id"": ""c4b2549d-a8e1-4e33-bc22-b98855c62c9d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7cfb497f-1034-40c9-a92a-bcc57a757caa"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4440e2cb-f255-484f-82ec-726d085f935f"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""5f9aa87f-9870-406d-af1b-40bf925e2b50"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d5889c6a-e964-47fd-a442-53d8c3fb7976"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""69b6a79b-c70d-4be3-be1f-ad0bffea91a3"",
                     ""path"": ""<Keyboard>/q"",
@@ -227,6 +291,17 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardControlScheme"",
                     ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7176737-5924-4818-b844-ae5e24c53c74"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -269,6 +344,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Controls_Move = m_Controls.FindAction("Move", throwIfNotFound: true);
         m_Controls_Attack = m_Controls.FindAction("Attack", throwIfNotFound: true);
         m_Controls_Switch = m_Controls.FindAction("Switch", throwIfNotFound: true);
+        m_Controls_Shift = m_Controls.FindAction("Shift", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +408,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_Move;
     private readonly InputAction m_Controls_Attack;
     private readonly InputAction m_Controls_Switch;
+    private readonly InputAction m_Controls_Shift;
     public struct ControlsActions
     {
         private @InputControls m_Wrapper;
@@ -340,6 +417,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Controls_Move;
         public InputAction @Attack => m_Wrapper.m_Controls_Attack;
         public InputAction @Switch => m_Wrapper.m_Controls_Switch;
+        public InputAction @Shift => m_Wrapper.m_Controls_Shift;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -361,6 +439,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Switch.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSwitch;
                 @Switch.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSwitch;
                 @Switch.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSwitch;
+                @Shift.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
+                @Shift.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
+                @Shift.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -377,6 +458,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Switch.started += instance.OnSwitch;
                 @Switch.performed += instance.OnSwitch;
                 @Switch.canceled += instance.OnSwitch;
+                @Shift.started += instance.OnShift;
+                @Shift.performed += instance.OnShift;
+                @Shift.canceled += instance.OnShift;
             }
         }
     }
@@ -405,5 +489,6 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
+        void OnShift(InputAction.CallbackContext context);
     }
 }

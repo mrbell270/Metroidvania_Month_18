@@ -4,5 +4,6 @@ public enum AttackType
     , Slice
     , Magic
     , Fire
+    , Lethal
 }
 

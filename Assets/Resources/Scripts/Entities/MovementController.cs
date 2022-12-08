@@ -62,7 +62,7 @@ public abstract class MovementController : MonoBehaviour
         Rb.velocity = Vector3.zero;
     }
 
-    public void Deactivate()
+    public virtual void Deactivate()
     {
         isDead = true;
         GetComponent<Collider2D>().enabled = false;
