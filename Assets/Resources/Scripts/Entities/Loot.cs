@@ -13,6 +13,8 @@ public class Loot : MonoBehaviour
     bool isBusy = true;
     [SerializeField]
     SpriteRenderer lootSkin;
+    [SerializeField]
+    AnimationCurve lootCurve;
 
     [Header("Attraction")]
     [SerializeField]
@@ -64,6 +66,27 @@ public class Loot : MonoBehaviour
             player.Loot(this);
             Destroy(gameObject);
         }
+    }
+
+    public void Move(Vector3 direction)
+    {
+        StartCoroutine(MoveCorotine(direction));
+    }
+
+    IEnumerator MoveCorotine(Vector3 direction)
+    {
+        float timer = 0f;
+        while (timer < 1f)
+        {
+            timer += Time.deltaTime;
+            Vector2 newPosition = new Vector2(direction.x * timer, direction.y * timer + lootCurve.Evaluate(timer));
+            transform.localPosition = newPosition;
+            yield return null;
+        }
+        YSortStatic ysort = transform.gameObject.GetComponent<YSortStatic>();
+        if (ysort != null) ysort.Recalibrate();
+        
+        IsBusy = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

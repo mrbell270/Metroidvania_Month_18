@@ -40,24 +40,10 @@ public abstract class Enemy : Actor
                 float y = Random.Range(-0.5f, 0.5f);
                 Vector3 direction = new Vector3(x, y, 0).normalized;
                 GameObject d = Instantiate(drop.loot, transform);
-                StartCoroutine(LootMove(d.transform, direction));
+                Loot l = d.GetComponent<Loot>();
+                if (l != null) l.Move(direction);
             }
         }
-    }
-
-    IEnumerator LootMove(Transform loot, Vector3 direction)
-    {
-        float timer = 0f;
-        while (timer < 1f)
-        {
-            timer += Time.deltaTime;
-            loot.localPosition = Vector3.Lerp(loot.localPosition, direction, timer);
-            yield return null;
-        }
-        YSortStatic ysort = loot.gameObject.GetComponent<YSortStatic>();
-        if (ysort != null) ysort.Recalibrate();
-        Loot lootloot = loot.gameObject.GetComponent<Loot>();
-        if (lootloot != null) lootloot.IsBusy = false;
     }
 }
 

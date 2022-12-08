@@ -10,6 +10,8 @@ public class ControledMovement : MovementController
     float shiftRange = 1f;
     [SerializeField]
     LayerMask shiftableLayers;
+    [SerializeField]
+    LayerMask nonShiftableLayers;
 
     private void Awake()
     {
@@ -26,11 +28,12 @@ public class ControledMovement : MovementController
     {
         if (MovementVector.sqrMagnitude > 0.1f)
         {
+
+            Vector2 shiftPoint = FindShiftPoint(MovementVector.normalized);
+
             ParentActor.battleController.DeactivateSoft();
             ParentActor.movementController.GetComponent<ControledMovement>().DeactivateSoft();
             ParentActor.animationController.Anim.SetBool("IsShifting", true);
-
-            Vector2 shiftPoint = FindShiftPoint(MovementVector.normalized);
 
             StartCoroutine(ShiftCoroutine(shiftPoint));
         }
@@ -38,16 +41,23 @@ public class ControledMovement : MovementController
 
     Vector2 FindShiftPoint(Vector2 direction)
     {
+        float multiplier;
+        RaycastHit2D rh = Physics2D.Raycast(transform.position, direction, shiftRange, nonShiftableLayers);
+        if(rh.distance == 0f)
+        {
+            multiplier = shiftRange;
+        }
+        else
+        {
+            multiplier = rh.distance;
+        }
         Vector2 result;
-        float multiplier = shiftRange;
         result = (Vector2)transform.position + multiplier * direction;
-        Debug.Log("start = " + result);
         while(multiplier > 0f && Physics2D.OverlapBox(result + new Vector2(0f, -0.25f), new Vector2(0.99f, 0.49f), 0f, shiftableLayers) != null)
         {
             multiplier -= 0.1f;
             result = (Vector2)transform.position + multiplier * direction;
         }
-        Debug.Log("result = " + result);
 
         return result;
     }

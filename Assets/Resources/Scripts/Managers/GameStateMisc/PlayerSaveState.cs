@@ -48,7 +48,7 @@ public class PlayerSaveState
 
     List<GameObject> LoadWeaponPrefabs()
     {
-        List<GameObject> allWeapons = new(Resources.LoadAll<GameObject>("Prefabs/Weapons/Player/Dagger"));
+        List<GameObject> allWeapons = new(Resources.LoadAll<GameObject>("Prefabs/Weapons/Player"));
 
         return allWeapons;
     }

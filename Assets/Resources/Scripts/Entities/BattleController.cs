@@ -34,6 +34,7 @@ public abstract class BattleController : MonoBehaviour
     public List<string> AttackerTags { get => attackerTags; }
     public bool IsLocked { get => isLocked; set => isLocked = value; }
     public bool Init { get => init; set => init = value; }
+    public int CurrentWeaponIdx { get => currentWeaponIdx; set => currentWeaponIdx = value; }
 
     public bool IsBusy() => currentWeapon.IsBusy;
 
@@ -56,11 +57,11 @@ public abstract class BattleController : MonoBehaviour
     public void InitializeBattleController()
     {
         curHealthPoints = maxHealthPoints;
-        currentWeaponIdx = 0;
+        CurrentWeaponIdx = 0;
         Weapon[] childWeapons = availableWeapons.GetComponentsInChildren<Weapon>();
         if (childWeapons.Length > 0)
         {
-            currentWeapon = childWeapons[currentWeaponIdx];
+            currentWeapon = childWeapons[CurrentWeaponIdx];
         }
     }
 
@@ -120,15 +121,15 @@ public abstract class BattleController : MonoBehaviour
         {
             idx = childWeapons.Length - 1;
         }
-        currentWeaponIdx = idx;
-        currentWeapon = childWeapons[currentWeaponIdx];
+        CurrentWeaponIdx = idx;
+        currentWeapon = childWeapons[CurrentWeaponIdx];
     }
 
     public void SwitchWeapon()
     {
         Weapon[] childWeapons = availableWeapons.GetComponentsInChildren<Weapon>();
-        currentWeaponIdx = (currentWeaponIdx + 1) % childWeapons.Length;
-        currentWeapon = childWeapons[currentWeaponIdx];
+        CurrentWeaponIdx = (CurrentWeaponIdx + 1) % childWeapons.Length;
+        currentWeapon = childWeapons[CurrentWeaponIdx];
     }
 
     public virtual void Deactivate()
