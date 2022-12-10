@@ -77,7 +77,7 @@ public class ChestInteractable : Interactable
         }
     }
 
-    public bool TestChestWeapon(Weapon att) => (att.Type == AttackType.Blunt || att.Type == AttackType.Slice);
+    public bool TestChestWeapon(Weapon att) => (att.Type == AttackType.Basic || att.Type == AttackType.Slice);
 
     public override void Decline()
     {

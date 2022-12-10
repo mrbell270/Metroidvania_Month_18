@@ -12,10 +12,13 @@ public class ShopItemInteractable : Interactable
     [SerializeField]
     List<Mechanism> connectedMechanisms = new();
 
+    Animator animator;
+
     void Start()
     {
         TestWeapon = TestLeverWeapon;
 
+        animator = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         costText.text = cost.ToString();
     }
@@ -31,7 +34,7 @@ public class ShopItemInteractable : Interactable
     }
     public override void Decline()
     {
-        // TODO: Animate
+        animator.SetTrigger("declined");
     }
 
     public bool TestLeverWeapon(Weapon att)

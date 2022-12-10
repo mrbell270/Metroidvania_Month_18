@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class MenuUIState : UIState
 {
-    public override void OnStateEnter()
-    {
-    }
-
-    public override void OnStateExit()
-    {
-    }
-
     public override void OnStateStay()
     {
     }

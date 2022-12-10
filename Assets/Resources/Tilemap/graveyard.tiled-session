@@ -44,40 +44,73 @@
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.75,
-            "selectedLayer": 3,
+            "scale": 1,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 1585.333333333333,
-                "y": 169.33333333333337
+                "x": 559,
+                "y": -142
             }
         },
         "Level2.tmx": {
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.75,
-            "selectedLayer": 3,
+            "scale": 0.33,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 406.6666666666666,
-                "y": -94.66666666666663
+                "x": 263.63636363636374,
+                "y": 139.3939393939395
             }
         },
         "Level3.tmx": {
             "expandedObjectLayers": [
                 3
             ],
-            "scale": 0.25,
-            "selectedLayer": 2,
+            "scale": 0.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 204,
-                "y": 776
+                "x": -82,
+                "y": 476
+            }
+        },
+        "Level4.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 745,
+                "y": 536
+            }
+        },
+        "Level5.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.33,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1418.1818181818182,
+                "y": -500
+            }
+        },
+        "LevelTemplate — копия.tmx": {
+            "scale": 0.9335069444444444,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 576.3213687930074,
+                "y": 320.297563697229
             }
         },
         "LevelTemplate.tmx": {
+            "expandedObjectLayers": [
+                3
+            ],
             "scale": 0.8403211805555556,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 576.5652600588811,
+                "x": 577.1602706471772,
                 "y": 320.11569650327965
             }
         },
@@ -128,6 +161,8 @@
     "project": "graveyard.tiled-project",
     "property.type": "int",
     "recentFiles": [
+        "LevelTemplate — копия.tmx",
+        "LevelTemplate.tmx",
         "C:/Users/test/Documents/projects/unity/Metroidvania_Month_18/Assets/SuperTiled2Unity/Examples/Overhead/Maps/Zoria Tileset/overhead-objects.tsx",
         "C:/Users/test/Documents/projects/unity/Metroidvania_Month_18/Assets/SuperTiled2Unity/Examples/Overhead/Maps/TestOverhead.tmx",
         "C:/Users/test/Documents/projects/unity/Metroidvania_Month_18/Assets/SuperTiled2Unity/Examples/Overhead/Maps/Zoria Tileset/scraps.tsx",

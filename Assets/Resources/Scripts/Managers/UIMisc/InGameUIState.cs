@@ -28,12 +28,8 @@ public class InGameUIState : UIState
     public override void OnStateEnter()
     {
         player = Player.GetInstance();
-        UIObject.SetActive(true);
-    }
 
-    public override void OnStateExit()
-    {
-        UIObject.SetActive(false);
+        base.OnStateEnter();
     }
 
     public override void OnStateStay()
@@ -58,7 +54,9 @@ public class InGameUIState : UIState
             weaponBox[i].gameObject.SetActive(true);
             int weaponSackIdx = (currentWeaponIdx + i) % openedWeaponsCnt;
             string weaponTypeName = player.battleController.availableWeapons.GetComponentsInChildren<Weapon>()[weaponSackIdx].GetType().Name;
-            weaponBox[i].sprite = weaponToSprite[weaponTypeName];
+            Sprite sp;
+            weaponToSprite.TryGetValue(weaponTypeName, out sp);
+            if(sp != null) weaponBox[i].sprite = sp;
         }
     }
 
@@ -71,9 +69,9 @@ public class InGameUIState : UIState
         }
         currentWeaponIdx = -1;
         Sprite[] weaponSprites = Resources.LoadAll<Sprite>("Sprites/skins/weapons/weaponbox");
-        Debug.Log(weaponSprites.Length);
         weaponToSprite.Add("FistWeapon", weaponSprites[0]);
         weaponToSprite.Add("FastSlashWeapon", weaponSprites[1]);
+        weaponToSprite.Add("RangedWeapon", weaponSprites[2]);
     }
 
     // Update is called once per frame

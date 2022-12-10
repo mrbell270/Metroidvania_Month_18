@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     List<UIState> states = new();
 
+    public int CurrentStateIdx { get => currentStateIdx; set => currentStateIdx = value; }
+
     public static UIManager GetInstance()
     {
         return instance;
@@ -38,18 +40,21 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        states[currentStateIdx].OnStateEnter();
+        states[CurrentStateIdx].OnStateEnter();
     }
 
     private void Update()
     {
-        states[currentStateIdx].OnStateStay();
+        states[CurrentStateIdx].OnStateStay();
     }
 
-    private void ChangeState(int idx)
+    public void ChangeState(int idx)
     {
-        states[currentStateIdx].OnStateExit();
-        currentStateIdx = idx;
-        states[currentStateIdx].OnStateEnter();
+        if (idx < states.Count)
+        {
+            states[CurrentStateIdx].OnStateExit();
+            CurrentStateIdx = idx;
+            states[CurrentStateIdx].OnStateEnter();
+        }
     }
 }

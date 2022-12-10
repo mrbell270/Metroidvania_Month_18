@@ -31,6 +31,7 @@ public class PatrolMovement : MovementController
         InitializeMovement();
         seeker = GetComponent<Seeker>();
 
+        patrolTrail.Add(transform.position);
         List<Vector2> patrolTrailTmp = new List<Vector2>();
         foreach (Vector3 p in patrolTrail)
         {

@@ -62,6 +62,8 @@ public class Player : Actor
 
         _controls.Controls.Shift.performed += ctx => ShiftAction();
 
+        _controls.Controls.Pause.performed += ctx => PauseGame();
+
         if (movementController == null)
         {
             _controls.Controls.Disable();
@@ -126,6 +128,11 @@ public class Player : Actor
         movementController.Deactivate();
     }
 
+    void PauseGame()
+    {
+        int newIdx = (UIManager.GetInstance().CurrentStateIdx + 1) % 2;
+        UIManager.GetInstance().ChangeState(newIdx);
+    }
     public void ReloadAfterDeath()
     {
         mainCamera.transform.position = cameraRespawn;

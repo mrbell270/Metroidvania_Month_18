@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="36" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="12">
  <tileset firstgid="1" source="ground_tilset.tsx"/>
- <layer id="1" name="background" width="36" height="20">
+ <layer id="1" name="ground" width="36" height="20">
   <properties>
    <property name="unity:SortingLayer" value="Ground"/>
    <property name="unity:layer" value="Ground"/>
@@ -29,10 +29,10 @@
 18,20,20,20,17,20,17,18,20,20,20,17,17,20,19,20,20,20,20,18,18,20,20,19,18,19,20,18,20,20,19,20,17,20,20,20
 </data>
  </layer>
- <layer id="2" name="ground" width="36" height="20">
+ <layer id="2" name="aboveground" width="36" height="20">
   <properties>
-   <property name="unity:SortingLayer" value="AboveGround"/>
-   <property name="unity:layer" value="Ground"/>
+   <property name="unity:SortingLayer" value="Ground"/>
+   <property name="unity:layer" value="AboveGround"/>
   </properties>
   <data encoding="csv">
 9,9,9,9,9,9,9,9,9,9,9,9,15,0,0,0,0,0,0,0,0,0,0,14,9,9,9,9,9,9,9,9,9,9,9,9,
@@ -58,6 +58,10 @@
 </data>
  </layer>
  <layer id="4" name="decor" width="36" height="20">
+  <properties>
+   <property name="unity:SortingLayer" value="Ground"/>
+   <property name="unity:layer" value="Ground"/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

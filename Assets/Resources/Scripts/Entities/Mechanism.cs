@@ -26,7 +26,7 @@ public class Mechanism : MonoBehaviour
         MechName = gameObject.name;
     }
 
-    public void ChangeState(bool shouldBe)
+    public virtual void ChangeState(bool shouldBe)
     {
         IsOn = shouldBe;
         if (animator != null) animator.SetBool("isOn", shouldBe);

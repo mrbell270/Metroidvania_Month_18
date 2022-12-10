@@ -20,6 +20,20 @@
             "width": 1152,
             "x": 1152,
             "y": -640
+        },
+        {
+            "fileName": "Level4.tmx",
+            "height": 640,
+            "width": 1152,
+            "x": 0,
+            "y": -640
+        },
+        {
+            "fileName": "Level5.tmx",
+            "height": 640,
+            "width": 1152,
+            "x": 0,
+            "y": 640
         }
     ],
     "onlyShowAdjacentMaps": false,

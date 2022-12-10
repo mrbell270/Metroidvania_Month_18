@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BushInteractable : Interactable
 {
+    [SerializeField]
+    Sprite active;
     void Start()
     {
         TestWeapon = TestBushWeapon;
@@ -14,8 +16,7 @@ public class BushInteractable : Interactable
     public override void Activate()
     {
         col.enabled = false;
-        // TODO:  Animate
-        GetComponent<SpriteRenderer>().color = Color.gray;
+        GetComponent<SpriteRenderer>().sprite = active;
         Debug.Log("Bush Active!");
     }
     public bool TestBushWeapon(Weapon att)

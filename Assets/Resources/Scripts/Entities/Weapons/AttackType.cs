@@ -1,6 +1,6 @@
 public enum AttackType
 {
-    Blunt
+    Basic
     , Slice
     , Magic
     , Fire

@@ -8,7 +8,15 @@ public abstract class UIState : MonoBehaviour
 
     public GameObject UIObject { get => uiObject;}
 
-    public abstract void OnStateEnter();
+    public virtual void OnStateEnter()
+    {
+        Debug.Log("Enter" + gameObject.name);
+        UIObject.SetActive(true);
+    }
     public abstract void OnStateStay();
-    public abstract void OnStateExit();
+    public virtual void OnStateExit()
+    {
+        Debug.Log("Exir" + gameObject.name);
+        UIObject.SetActive(false);
+    }
 }

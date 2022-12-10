@@ -7,6 +7,8 @@ public class LeverInteractable : Interactable
     [SerializeField]
     List<Mechanism> connectedMechanisms = new();
 
+    public List<Mechanism> ConnectedMechanisms { get => connectedMechanisms; set => connectedMechanisms = value; }
+
     void Start()
     {
         TestWeapon = TestLeverWeapon;
@@ -18,7 +20,7 @@ public class LeverInteractable : Interactable
     {
         transform.Rotate(0, 180, 0);
 
-        foreach (Mechanism mech in connectedMechanisms)
+        foreach (Mechanism mech in ConnectedMechanisms)
         {
             mech.ChangeState(!mech.IsOn);
         }

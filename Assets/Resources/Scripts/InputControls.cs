@@ -71,6 +71,15 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""2537c504-e7a2-43d8-888f-2f0eb1716da7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -304,6 +313,17 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                     ""action"": ""Shift"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb3bf84d-768f-4dbe-8bd3-e22f1f59d8fc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardControlScheme"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -345,6 +365,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         m_Controls_Attack = m_Controls.FindAction("Attack", throwIfNotFound: true);
         m_Controls_Switch = m_Controls.FindAction("Switch", throwIfNotFound: true);
         m_Controls_Shift = m_Controls.FindAction("Shift", throwIfNotFound: true);
+        m_Controls_Pause = m_Controls.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -409,6 +430,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Controls_Attack;
     private readonly InputAction m_Controls_Switch;
     private readonly InputAction m_Controls_Shift;
+    private readonly InputAction m_Controls_Pause;
     public struct ControlsActions
     {
         private @InputControls m_Wrapper;
@@ -418,6 +440,7 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Controls_Attack;
         public InputAction @Switch => m_Wrapper.m_Controls_Switch;
         public InputAction @Shift => m_Wrapper.m_Controls_Shift;
+        public InputAction @Pause => m_Wrapper.m_Controls_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -442,6 +465,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Shift.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
                 @Shift.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
                 @Shift.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnShift;
+                @Pause.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -461,6 +487,9 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
                 @Shift.started += instance.OnShift;
                 @Shift.performed += instance.OnShift;
                 @Shift.canceled += instance.OnShift;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -490,5 +519,6 @@ public partial class @InputControls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSwitch(InputAction.CallbackContext context);
         void OnShift(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene 2.unity
     guid: d8aba4f40a23df541958deeb95cfbd3b
+  - enabled: 1
+    path: Assets/Scenes/ShovelBossFight.unity
+    guid: 21e2e233971b1ec4f87a9c4e6f2b2a72
   m_configObjects: {}
