@@ -4,7 +4,12 @@ using UnityEngine;
 public class ProjectileWeapon : Weapon
 {
     public Rigidbody2D rb;
-    public float speed;
+    [SerializeField]
+    float speed;
+    Vector2 direction;
+
+    public float Speed { get => speed; set => speed = value; }
+    public Vector2 Direction { get => direction; set => direction = value; }
 
     protected override IEnumerator AttackCoroutine(Actor actor, Vector2 direction)
     {
@@ -24,8 +29,10 @@ public class ProjectileWeapon : Weapon
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    public void Initialize()
-    {        
+
+    public virtual void Initialize(Vector2 direction)
+    {
+        this.Direction = direction;
         gameObject.tag = transform.parent.gameObject.tag;
     }
 
@@ -33,12 +40,7 @@ public class ProjectileWeapon : Weapon
     {
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        StartCoroutine(Explode());
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(Explode());
     }

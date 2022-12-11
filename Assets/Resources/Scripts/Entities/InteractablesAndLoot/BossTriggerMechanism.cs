@@ -10,6 +10,9 @@ public class BossTriggerMechanism: Mechanism
     GameObject boss;
     [SerializeField]
     GameObject loot;
+
+    bool isFightActive = false;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") && !IsOn)
@@ -19,25 +22,27 @@ public class BossTriggerMechanism: Mechanism
         }
     }
 
+    private void Update()
+    {
+        foreach (Mechanism gate in gates)
+        {
+            gate.ChangeState(!isFightActive);
+        }
+    }
+
     public void StartBossFight()
     {
+        isFightActive = true;
         boss.SetActive(true);
         // TODO: proper animation
         loot.SetActive(false);
-        foreach (Mechanism gate in gates)
-        {
-            gate.ChangeState(true);
-        }
     }
 
     public void EndBossFight()
     {
+        isFightActive = false;
         // TODO: proper animation
         loot.SetActive(true);
-        foreach(Mechanism gate in gates)
-        {
-            gate.ChangeState(true);
-        }
         ChangeState(true);
     }
 }

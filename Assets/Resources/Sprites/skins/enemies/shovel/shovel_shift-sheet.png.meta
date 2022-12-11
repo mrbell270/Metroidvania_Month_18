@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f220e0fb63d7f1d4b86c63450cb88ea4
+guid: 4fd874480a25fbf429c274afc9d63713
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,85 +117,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: weaponbox_0
+      name: shovel_shift-sheet_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 27
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b6124e4afb4c82a4ba388830bad41447
-      internalID: 1372695380
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: weaponbox_1
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 1
-        width: 34
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aedf05f51ce8ab94292bd1eecba85ef5
-      internalID: 1374394861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: weaponbox_2
-      rect:
-        serializedVersion: 2
-        x: 65
+        x: 0
         y: 0
-        width: 32
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65922c55ba4e0994b8016962e29d3f31
-      internalID: -847437028
+      spriteID: fa56079bce15e264cb4937e13b0075ff
+      internalID: 619350592
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: weaponbox_3
+      name: shovel_shift-sheet_1
       rect:
         serializedVersion: 2
-        x: 97
+        x: 96
         y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b8dd681671ad914ca5ac1018203b7a1
-      internalID: -327276728
+      spriteID: e5fe9c2649187fb4ab196989f075a5c1
+      internalID: -1133061281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21c5635896701b42980102f2f3f865d
+      internalID: -478335642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e34e65b408f7c48985a5400804dcf1
+      internalID: -802749603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b868644917ebb0e48b39f0f954aff89f
+      internalID: -153933181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80eb95f2a62239f44aadf96e3c08c3f2
+      internalID: 1633753957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41dad3fa2ed2f0c4f9dc7b4756c489e1
+      internalID: -9330792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd105a7d5b5295e4d9b6ed625b7c199f
+      internalID: 262313784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f2bc0c5ac0033479ca1cb7c8970eef
+      internalID: -1683326025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shovel_shift-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93af0b3454e6d4c4bad6afd19953cb4b
+      internalID: -1706283882
       vertices: []
       indices: 
       edges: []
@@ -211,10 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      weaponbox_0: 1372695380
-      weaponbox_1: 1374394861
-      weaponbox_3: -327276728
-      weaponbox_2: -847437028
+      shovel_shift-sheet_4: -153933181
+      shovel_shift-sheet_3: -802749603
+      shovel_shift-sheet_6: -9330792
+      shovel_shift-sheet_8: -1683326025
+      shovel_shift-sheet_2: -478335642
+      shovel_shift-sheet_7: 262313784
+      shovel_shift-sheet_0: 619350592
+      shovel_shift-sheet_9: -1706283882
+      shovel_shift-sheet_1: -1133061281
+      shovel_shift-sheet_5: 1633753957
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

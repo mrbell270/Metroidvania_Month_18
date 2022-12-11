@@ -39,7 +39,11 @@ public class Loot : MonoBehaviour
         if(type == LootType.Weapon && lootSkin != null && weaponPrefab != null)
         {
             SpriteRenderer wsr = weaponPrefab.GetComponent<SpriteRenderer>();
-            if (wsr != null) lootSkin.sprite = wsr.sprite;
+            if(wsr == null) wsr = weaponPrefab.GetComponentInChildren<SpriteRenderer>();
+            if (wsr != null)
+            {
+                lootSkin.sprite = wsr.sprite;
+            }
         } 
     }
 

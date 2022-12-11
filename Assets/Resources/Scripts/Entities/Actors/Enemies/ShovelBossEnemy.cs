@@ -26,6 +26,8 @@ public class ShovelBossEnemy : MonoBehaviour
 
     [Header("Battle")]
     [SerializeField]
+    int phase = 0;
+    [SerializeField]
     int maxHealthPoints;
     [SerializeField]
     int curHealthPoints;
@@ -36,7 +38,7 @@ public class ShovelBossEnemy : MonoBehaviour
     [SerializeField]
     List<GameObject> prefabs = new();
     [SerializeField]
-    List<GameObject> spawners = new();
+    List<BatteryWeapon> batteries = new();
 
     public int CurHealthPoints { get => curHealthPoints; set => curHealthPoints = value; }
     public int MaxHealthPoints { get => maxHealthPoints; set => maxHealthPoints = value; }
@@ -52,6 +54,30 @@ public class ShovelBossEnemy : MonoBehaviour
         curHealthPoints = maxHealthPoints;
         minPos = new Vector2(transform.position.x - 14, transform.position.y - 6.5f);
         maxPos = new Vector2(transform.position.x + 14, transform.position.y + 6.5f);
+    }
+
+    public void Attack()
+    {
+        List<BatteryWeapon> activeBattery = new();
+        switch (phase)
+        {
+            case 1:
+                int idx = Random.Range(0, batteries.Count);
+                activeBattery.Add(batteries[idx]);
+                break;
+            case 2:
+                int idx1 = Random.Range(0, batteries.Count / 2);
+                activeBattery.Add(batteries[idx1]);
+                int idx2 = Random.Range(batteries.Count / 2, batteries.Count);
+                activeBattery.Add(batteries[idx2]);
+                break;
+            default:
+                break;
+        }
+        foreach(BatteryWeapon baterry in activeBattery)
+        {
+            baterry.Attack();
+        }
     }
 
 
@@ -79,6 +105,7 @@ public class ShovelBossEnemy : MonoBehaviour
             //rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref m_Velocity, movementSmoothing);
         }
     }
+
     //////////////////
     // Navigation
     public void GetMoveCommandRandom()
@@ -119,16 +146,21 @@ public class ShovelBossEnemy : MonoBehaviour
     {
         int prefabIdx = Random.Range(0, prefabs.Count);
 
-        Instantiate(prefabs[prefabIdx], transform.position, Quaternion.identity).SetActive(true);
+        Instantiate(prefabs[prefabIdx], transform.position + new Vector3 (0f, -0.1f, 0), Quaternion.identity).SetActive(true);
     }
 
     public virtual void TakeDamage(Weapon attack)
     {
         // TODO: Animate hit
         curHealthPoints -= attack.Damage;
-        if (curHealthPoints <= maxHealthPoints / 2)
+        if (phase == 0 && 3 * curHealthPoints <= maxHealthPoints * 2)
         {
+            phase = 1;
             animator.SetTrigger("Upgrade");
+        }
+        if (phase == 1 && 4 * curHealthPoints <= maxHealthPoints)
+        {
+            phase = 2;
         }
         if (curHealthPoints <= 0)
         {

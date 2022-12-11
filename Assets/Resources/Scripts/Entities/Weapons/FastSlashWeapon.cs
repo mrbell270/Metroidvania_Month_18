@@ -8,6 +8,8 @@ public class FastSlashWeapon : Weapon
     float prepTime;
     [SerializeField]
     float pauseTime;
+    [SerializeField]
+    float angle = 30;
     TrailRenderer tr;
         
     protected override IEnumerator AttackCoroutine(Actor actor, Vector2 direction)
@@ -17,10 +19,10 @@ public class FastSlashWeapon : Weapon
         tr.enabled = false;
 
         Vector2 idlePosition = transform.localPosition;
-        float sin1 = Mathf.Sin(30 * Mathf.Deg2Rad);
-        float cos1 = Mathf.Cos(30 * Mathf.Deg2Rad);
-        float sin2 = Mathf.Sin(-30 * Mathf.Deg2Rad);
-        float cos2 = Mathf.Cos(-30 * Mathf.Deg2Rad);
+        float sin1 = Mathf.Sin(angle * Mathf.Deg2Rad);
+        float cos1 = Mathf.Cos(angle * Mathf.Deg2Rad);
+        float sin2 = Mathf.Sin(-angle * Mathf.Deg2Rad);
+        float cos2 = Mathf.Cos(-angle * Mathf.Deg2Rad);
         Vector2 peakDirection1 = new Vector2((cos1 * direction.x) - (sin1 * direction.y), (sin1 * direction.x) + (cos1 * direction.y));
         Vector2 peakDirection2 = new Vector2((cos2 * direction.x) - (sin2 * direction.y), (sin2 * direction.x) + (cos2 * direction.y));
         Vector2 peakPosition1 = (Range * peakDirection1) + idlePosition;

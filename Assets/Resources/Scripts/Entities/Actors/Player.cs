@@ -19,7 +19,8 @@ public class Player : Actor
     [SerializeField]
     private int coins;
 
-    bool canShift = true;
+    [SerializeField]
+    bool canShift = false;
 
     public int Coins { get => coins; set => coins = value; }
 
@@ -95,6 +96,7 @@ public class Player : Actor
             GameObject w = Instantiate(loot.WeaponPrefab, battleController.transform);
             w.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             battleController.SetWeapon();
+            if (w.GetComponent<Weapon>().GetType().Name == "ShovelWeapon") canShift = true;
         }
         else if(loot.Type == LootType.Heal)
         {

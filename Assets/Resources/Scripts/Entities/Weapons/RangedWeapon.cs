@@ -45,8 +45,8 @@ public class RangedWeapon : Weapon
         {
             projectile.transform.SetLocalPositionAndRotation(direction, Quaternion.identity);
             projectile.gameObject.SetActive(true);
-            projectile.Initialize();
-            projectile.rb.AddForce(direction.normalized * projectile.speed);
+            projectile.Initialize(direction.normalized);
+            projectile.rb.AddForce(direction.normalized * projectile.Speed);
         }
 
         elapsedTime = 0f;

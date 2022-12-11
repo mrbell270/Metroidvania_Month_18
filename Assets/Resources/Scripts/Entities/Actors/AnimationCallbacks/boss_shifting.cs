@@ -13,6 +13,7 @@ public class boss_shifting : StateMachineBehaviour
         {
             boss.GetMoveCommandRandom();
         }
+        boss.Attack();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

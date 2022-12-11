@@ -72,6 +72,7 @@ public class InGameUIState : UIState
         weaponToSprite.Add("FistWeapon", weaponSprites[0]);
         weaponToSprite.Add("FastSlashWeapon", weaponSprites[1]);
         weaponToSprite.Add("RangedWeapon", weaponSprites[2]);
+        weaponToSprite.Add("ShovelWeapon", weaponSprites[3]);
     }
 
     // Update is called once per frame

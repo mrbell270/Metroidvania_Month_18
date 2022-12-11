@@ -33,12 +33,12 @@ public abstract class Weapon : MonoBehaviour
     public float ReleaseTime { get => releaseTime; set => releaseTime = value; }
     public int DamageOverTime { get => damageOverTime; set => damageOverTime = value; }
     public bool IsBusy { get => isBusy; set => isBusy = value; }
+    public float VisibilityRangeSqr { get => visibilityRangeSqr; set => visibilityRangeSqr = value; }
 
     public virtual void Start()
     {
         startLocalPosition = transform.localPosition;
         visuals = new List<Renderer>(GetComponentsInChildren<SpriteRenderer>());
-        //visuals.AddRange(GetComponentsInChildren<TrailRenderer>());
         var sr = GetComponent<SpriteRenderer>();
         if (sr != null)
         {
@@ -52,7 +52,7 @@ public abstract class Weapon : MonoBehaviour
         {
             foreach (SpriteRenderer sr in visuals)
             {
-                sr.enabled = Vector2.SqrMagnitude((Vector2)transform.localPosition - startLocalPosition) > visibilityRangeSqr;
+                sr.enabled = Vector2.SqrMagnitude((Vector2)transform.localPosition - startLocalPosition) > VisibilityRangeSqr;
             }
         }
     }

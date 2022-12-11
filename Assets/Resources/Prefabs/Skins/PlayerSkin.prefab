@@ -73,7 +73,7 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 159cc91038dc0444297ab62158f75ac7, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 8cd4a99f902f52c49b4d3e5ab2050c60, type: 3}
   m_MaskAlphaCutoff: 0.2
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
